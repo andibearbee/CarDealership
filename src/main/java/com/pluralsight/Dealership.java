@@ -9,7 +9,7 @@ public class Dealership {
     private String name;
     private String address;
     private String phone;
-    private ArrayList<Vehicle> inventory;
+    public static ArrayList<Vehicle> inventory;
 
 
     public Dealership(String name, String address, String phone) {
@@ -71,13 +71,15 @@ public class Dealership {
         return null;
     }
 
-    public void getAllVehicles() {
+    public static ArrayList<Vehicle> getAllVehicles() {
+        ArrayList<Vehicle> allVehicles = new ArrayList<>();
         //getInventory
-        for (int i = 0; i < inventory.size(); i++) {
-            Vehicle allVehicles = inventory.get(i);
-            //System.out.println(allVehicles);
+        for (Vehicle vehicles : inventory) {
+            allVehicles.add(vehicles);
         }
+        return allVehicles;
     }
+
 
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
