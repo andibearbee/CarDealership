@@ -4,18 +4,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static com.pluralsight.Dealership.getAllVehicles;
+import static com.pluralsight.Dealership.*;
+import static com.pluralsight.DealershipFileManager.getDealership;
 
 
 public class UserInterface {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
-    private static void init() throws IOException {
-        DealershipFileManager newDealership = new DealershipFileManager();
-        newDealership.getDealership();
+    public static void init() throws IOException {
+        getDealership();
     }
 
-    public void display() throws IOException {
+    public static void display() throws IOException {
+        init();
         menu();
         int menuSwap = scanner.nextInt();
         switch(menuSwap) {
@@ -55,41 +56,48 @@ public class UserInterface {
         }
     }
 
-    public void processGetByPriceRequest() {
+    public static void processGetByPriceRequest() throws IOException {
+        getVehiclesByPrice();
 
     }
 
-    public void processGetByMakeModelRequest() {
+    public static void processGetByMakeModelRequest() throws IOException {
+        getVehiclesByMakeModel();
 
     }
 
-    public void processGetByYearRequest() {
+    public static void processGetByYearRequest() throws IOException {
+        getVehiclesByYear();
 
     }
 
-    public void processGetByColorRequest() {
+    public static void processGetByColorRequest() throws IOException {
+        getVehiclesByColor();
+
 
     }
 
-    public void processGetByMileageRequest() {
+    public static void processGetByMileageRequest() throws IOException {
+        getVehiclesByMileage();
 
     }
 
-    public void processGetByVehicleTypeRequest() {
+    public static void processGetByVehicleTypeRequest() throws IOException {
+        getVehiclesByType();
 
     }
 
     public static void processGetAllVehicleRequest() throws IOException {
-        init();
-        System.out.println("Displaying all vehicles: ");
-        displayVehicles(getAllVehicles());
+        getAllVehicles();
     }
 
-    public void processAddVehicleRequest() {
+    public static void processAddVehicleRequest() throws IOException {
+        addVehicle();
 
     }
 
-    public void processRemoveVehicleRequest() {
+    public static void processRemoveVehicleRequest()throws IOException {
+        removeVehicle();
 
     }
 
@@ -107,7 +115,7 @@ public class UserInterface {
     }
 
     public static void menu() {
-        String welcome = "Welcome to ClancysList, the one stop shop for all things used vehicles.\n" +
+        String welcome = "Welcome to GlobalCar, the one stop shop for all things used vehicles.\n" +
                 "Enter the number of the menu option you wish to view: \n" +
                 "1) View All Vehicles\n" +
                 "2) Add A Vehicle\n" +
