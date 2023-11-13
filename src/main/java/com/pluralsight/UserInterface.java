@@ -129,4 +129,5 @@ public class UserInterface {
                 "0) Exit";
         System.out.println(welcome);
     }
+    //Add a sales/lease menu
 }
