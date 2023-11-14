@@ -36,6 +36,7 @@ public class LeaseContract extends Contract{
         return monthlyLeasePayment;
 
     }
+    //if car is older than three years it cannot be leased
 
     //@Override
     //        public double getValue() {
